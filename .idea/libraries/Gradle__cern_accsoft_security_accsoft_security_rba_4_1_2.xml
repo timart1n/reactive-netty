@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: cern.accsoft.security:accsoft-security-rba:4.1.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cern.accsoft.security/accsoft-security-rba/4.1.2/dc223b802996a719481c64a1a34f0bf7453722b1/accsoft-security-rba-4.1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cern.accsoft.security/accsoft-security-rba/4.1.2/e61312a59fbd2d0cbb5de1f8d20847c5e36b18ef/accsoft-security-rba-4.1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

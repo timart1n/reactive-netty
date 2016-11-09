@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: cern.japc:japc-value:4.1.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cern.japc/japc-value/4.1.1/a75746a31424417dda1e6faf89b3a4b2d5541b33/japc-value-4.1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cern.japc/japc-value/4.1.1/d0fced736707bcf69032c879c4f1c4727002f8d8/japc-value-4.1.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

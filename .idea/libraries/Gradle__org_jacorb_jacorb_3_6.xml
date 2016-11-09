@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.jacorb:jacorb:3.6">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jacorb/jacorb/3.6/2a75d7d2889a700baad75133860544aa67e8fcf/jacorb-3.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jacorb/jacorb/3.6/9ff0be77bdb0ad86deb1817afcc37696e509988e/jacorb-3.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

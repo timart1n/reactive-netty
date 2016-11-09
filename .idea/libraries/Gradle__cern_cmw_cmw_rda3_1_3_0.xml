@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: cern.cmw:cmw-rda3:1.3.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cern.cmw/cmw-rda3/1.3.0/a67c2592972a9f76694a9d24111aefc319327fd1/cmw-rda3-1.3.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cern.cmw/cmw-rda3/1.3.0/28c2f0d05d32d96a9884cd0a84a6599cd06494f/cmw-rda3-1.3.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

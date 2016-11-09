@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: cern.cmw:cmw-serializer:2.0.3">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cern.cmw/cmw-serializer/2.0.3/1bc4f0e95befc340fae9448d8fad3927c73ab68e/cmw-serializer-2.0.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cern.cmw/cmw-serializer/2.0.3/72ec4b68779a1fa8e9279b51a659e8db5964645f/cmw-serializer-2.0.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

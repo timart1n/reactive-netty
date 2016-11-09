@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: cern.cmw:cmw-directory-client:2.0.10">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cern.cmw/cmw-directory-client/2.0.10/d90f0d0845ccbfcf8ec596e656a970868bb542c8/cmw-directory-client-2.0.10.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cern.cmw/cmw-directory-client/2.0.10/bd652bff46bdcf4366af24cbb736b1ae635f41e2/cmw-directory-client-2.0.10-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

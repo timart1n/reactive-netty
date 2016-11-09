@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: cern.accsoft.commons:accsoft-commons-util:3.1.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cern.accsoft.commons/accsoft-commons-util/3.1.2/5477824826e68f66e0916efd9be8ba209602b222/accsoft-commons-util-3.1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cern.accsoft.commons/accsoft-commons-util/3.1.2/6ceaa8789a5f36ec55dda3e67f45f7fffe2d32db/accsoft-commons-util-3.1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

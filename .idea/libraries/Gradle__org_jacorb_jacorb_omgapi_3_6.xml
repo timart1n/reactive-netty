@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.jacorb:jacorb-omgapi:3.6">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jacorb/jacorb-omgapi/3.6/c0783a6b12b36d571586011d6ee84a7125b5bfa/jacorb-omgapi-3.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jacorb/jacorb-omgapi/3.6/8a187f9dff04991401384411038c75f82db28b6f/jacorb-omgapi-3.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

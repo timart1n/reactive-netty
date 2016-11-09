@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: cern.japc:japc-ext-remote:5.1.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cern.japc/japc-ext-remote/5.1.0/642b9c2a0b4d92e6bb84a69231286b109e670f1c/japc-ext-remote-5.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cern.japc/japc-ext-remote/5.1.0/4dc08af2718bb3db1071895e1e15a7ba891aaffd/japc-ext-remote-5.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
