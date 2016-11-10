@@ -10,21 +10,18 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.serialization.ClassResolvers;
 import io.netty.handler.codec.serialization.ObjectDecoder;
 import io.netty.handler.codec.serialization.ObjectEncoder;
-import io.netty.util.concurrent.Future;
-import io.netty.util.concurrent.GenericFutureListener;
-import org.cern.streaming.pool.netty.client.handler.PublisherProxyConnectionHandler;
-import org.cern.streaming.pool.netty.client.handler.PublisherProxyItemHandler;
-import org.cern.streaming.pool.netty.domain.SubscriptionMessage;
+import org.cern.streaming.pool.netty.client.discovery.handler.StreamInfoAnswerHandler;
+import org.cern.streaming.pool.netty.client.discovery.handler.StreamInfoRequestFuture;
+import org.cern.streaming.pool.netty.domain.RemoteReactiveStream;
+import org.cern.streaming.pool.netty.domain.StreamInfoRequest;
 
-/**
- * Created by timartin on 09/11/2016.
- */
 public class RemotePool implements DiscoveryService {
+
+    private static final String REACTIVE_STRING = "REACTIVE_STREAM";
 
     private final int port;
     private final String host;
     private final EventLoopGroup workerGroup;
-    private Channel channel;
 
     public RemotePool(int port, String host, EventLoopGroup workerGroup) {
         this.port = port;
@@ -34,31 +31,32 @@ public class RemotePool implements DiscoveryService {
 
     @Override
     public <T> ReactiveStream<T> discover(StreamId<T> id) {
-        ChannelFuture channelFuture = channel.writeAndFlush(new SubscriptionMessage<>(id));
-        final ReactiveStream<T> stream = null;
-        channelFuture.addListener(new GenericFutureListener<Future<? super Void>>() {
-            @Override
-            public void operationComplete(Future<? super Void> future) throws Exception {
-            }
-        });
+        try {
+            StreamInfoRequestFuture streamInfoRequestFuture = new StreamInfoRequestFuture();
+            RemoteReactiveStream<T> reactiveStream = new RemoteReactiveStream<>(streamInfoRequestFuture);
+            ChannelFuture channelFuture = createChannel(streamInfoRequestFuture);
+            channelFuture.addListener(new ChannelFutureListener() {
+                @Override
+                public void operationComplete(ChannelFuture future) throws Exception {
+                    if (future.isSuccess()) {
+                        Channel channel = channelFuture.channel();
+                        channel.writeAndFlush(new StreamInfoRequest<>(id));
+                    }
+                }
+            });
+            return reactiveStream;
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
-    private final void createChannel() throws InterruptedException {
-        Bootstrap bootstrap = createBootstrap();
-        ChannelFuture channelFuture = bootstrap.connect(host, port);
-        channelFuture.addListener(new ChannelFutureListener() {
-            @Override
-            public void operationComplete(ChannelFuture future) throws Exception {
-                if(future.isSuccess()) {
-                    channel = future.channel();
-                }
-            }
-        });
-        channelFuture.sync();
+    private final ChannelFuture createChannel(StreamInfoRequestFuture streamInfoRequestFuture) throws InterruptedException {
+        Bootstrap bootstrap = createBootstrap(streamInfoRequestFuture);
+        return bootstrap.connect(host, port);
     }
 
-    private Bootstrap createBootstrap() {
+    private final <T> Bootstrap createBootstrap(StreamInfoRequestFuture streamInfoRequestFuture) {
         return new Bootstrap()
                 .group(workerGroup)
                 .channel(NioSocketChannel.class)
@@ -68,8 +66,8 @@ public class RemotePool implements DiscoveryService {
                     public void initChannel(SocketChannel ch) throws Exception {
                         ch.pipeline().addLast(new ObjectEncoder());
                         ch.pipeline().addLast(new ObjectDecoder(ClassResolvers.cacheDisabled(getClass().getClassLoader())));
+                        ch.pipeline().addLast(new StreamInfoAnswerHandler<>(streamInfoRequestFuture));
                     }
                 });
     }
-
 }

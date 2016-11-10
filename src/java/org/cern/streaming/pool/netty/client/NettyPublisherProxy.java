@@ -28,24 +28,22 @@ public class NettyPublisherProxy<T> implements Publisher<T> {
 
     private final int port;
     private final String host;
-    private final StreamId<T> streamId;
     private final EventLoopGroup workerGroup;
     private ConnectionState connectionState;
     private Channel channel;
     private final Map<Subscriber<? super T>, Long> subscribers;
     private long itemsAccepted = 0;
 
-    public NettyPublisherProxy(int port, String host, EventLoopGroup workerGroup, StreamId<T> streamId) {
+    public NettyPublisherProxy(int port, String host, EventLoopGroup workerGroup) {
         this.port = port;
         this.host = host;
         this.workerGroup = workerGroup;
-        this.streamId = streamId;
         connectionState = ConnectionState.DISCONNECTED;
         subscribers = new HashMap<>();
     }
 
-    public NettyPublisherProxy(int port, String host, int threadNumber, StreamId<T> streamId) {
-        this(port, host, new NioEventLoopGroup(threadNumber), streamId);
+    public NettyPublisherProxy(int port, String host, int threadNumber) {
+        this(port, host, new NioEventLoopGroup(threadNumber));
     }
 
     @Override
@@ -65,7 +63,7 @@ public class NettyPublisherProxy<T> implements Publisher<T> {
     }
 
     public void handleSubscriptionAnswer(StatusMessage statusMessage) {
-        if (statusMessage.isError()) {
+        /*if (statusMessage()) {
             connectionState = ConnectionState.DISCONNECTED;
             channel.close();
             for (Subscriber subscriber : subscribers.keySet()) {
@@ -75,7 +73,7 @@ public class NettyPublisherProxy<T> implements Publisher<T> {
             for (Subscriber subscriber : subscribers.keySet()) {
                 subscriber.onSubscribe(new NettySubscription<>(this, subscriber));
             }
-        }
+        }*/
     }
 
     public void request(Subscriber<T> subscriber, long n) {

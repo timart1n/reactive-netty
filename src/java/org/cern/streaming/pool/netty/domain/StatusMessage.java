@@ -11,15 +11,15 @@ import java.io.Serializable;
  */
 public class StatusMessage implements Serializable {
 
-    private final int statusCode;
+    private final StatusCode statusCode;
     private final String statusMessage;
 
-    public StatusMessage(int statusCode, String statusMessage) {
+    public StatusMessage(StatusCode statusCode, String statusMessage) {
         this.statusCode = statusCode;
         this.statusMessage = statusMessage;
     }
 
-    public int getStatusCode() {
+    public StatusCode getStatusCode() {
         return statusCode;
     }
 
@@ -27,19 +27,8 @@ public class StatusMessage implements Serializable {
         return statusMessage;
     }
 
-    public boolean isError() {
-        return statusCode == 2;
-    }
-
-    public static final StatusMessage ACCEPTED() {
-        return new StatusMessage(0, "Request accepted.");
-    }
-
-    public static final StatusMessage ERROR(String errorMessage) {
-        return new StatusMessage(2, errorMessage);
-    }
-
-    public static final StatusMessage COMPLETE() {
-        return new StatusMessage(1, "Stream completed.");
+    public enum StatusCode {
+        OK,
+        ERROR
     }
 }
